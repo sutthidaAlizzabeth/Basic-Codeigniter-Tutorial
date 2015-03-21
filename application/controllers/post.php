@@ -14,6 +14,13 @@
 			
 		}
 
+		public function submit(){
+			//echo "submit";
+			$num1 = $this->input->post('num1');
+			$num2 = $this->input->post('num2');
+			echo $num1." + ".$num2." = ". ($num1+$num2);
+		}
+
 		public function  insert()
 		{
 
