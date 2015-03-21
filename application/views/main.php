@@ -9,7 +9,7 @@
 		<br/>
 		<h2><?php echo $title; ?></h2>
 		<br/>
-		<form action="<?php echo base_url('post/submit') ?>" method="POST">
+		<form action="<?php echo base_url('post/index') ?>" method="POST">
 			<input type="text" name="num1">
 			+
 			<input type="text" name="num2">
