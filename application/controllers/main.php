@@ -19,7 +19,7 @@
 
 		}
 
-		public function page($page=FALSE)
+		public function page($page=1)
 		{
 			$per_page = 5;
 			$this->load->library('pagination');
@@ -31,7 +31,7 @@
 			$this->pagination->initialize($config);
 
 			echo $this->pagination->create_links();
-
+			$page = ($page-1)*5;
 			$this->load->model('mo_post');
 			$data['result'] = $this->mo_post->get(FALSE,$per_page,$page);
 			$this->load->view('blog_ci/index',$data);
