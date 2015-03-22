@@ -34,5 +34,7 @@
 				}
 			?>
 		</table>
+		<br/>
+		<a href="<?php echo base_url('admin/logout'); ?>"><button >Logout</button></a>
 	</body>
 </html>

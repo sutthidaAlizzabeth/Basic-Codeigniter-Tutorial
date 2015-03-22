@@ -6,13 +6,18 @@ class mo_post extends CI_Model
 {
 	public $table = 'posts';
 
+	public function get_num_row()
+	{
+		return $this->db->count_all($this->table);
+	}
+
 	public function insert($title, $content)
 	{
 		$new_data = array('title'=>$title,'content'=>$content);
 		$this->db->insert($this->table,$new_data);
 	}
 
-	public function get($id = FALSE)
+	public function get($id = FALSE, $limit = FALSE, $page=FALSE)
 	{
 		if($id)
 		{
@@ -22,6 +27,7 @@ class mo_post extends CI_Model
 		}
 		else
 		{
+			$this->db->limit($limit,$page);
 			$query = $this->db->get($this->table);
 			$result = $query->result();
 		}
