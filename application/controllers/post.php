@@ -13,9 +13,8 @@
 			// $sql = "select * from posts";
 			// $query = $this->db->query($sql);
 			// $result = $query->result();
-			$query = $this->db->get('posts');
-			$result = $query->result();
-			$data['result'] = $result;
+			$this->load->model('mo_post');
+			$data['result'] = $this->mo_post->get();
 			$this->load->view('post',$data);
 
 			// $data['post_id'] = '1';
@@ -38,11 +37,8 @@
 		{
 			if($id)
 			{
-				$condition = array('posts.id'=>$id);
-				//$this->db->where($condition);
-				//$query = $this->db->get('posts');
-				$query = $this->db->get_where('posts',$condition);
-				$result = $query->result();
+				$this->load->model('mo_post');
+				$result = $this->mo_post->get($id);
 				var_dump($result);
 			}
 			else
@@ -60,17 +56,15 @@
 		{
 			$title = $this->input->post('title');
 			$content = $this->input->post('content');
-			$new_data = array('title'=>$title,'content'=>$content);
-			$this->db->insert('posts',$new_data);
+			$this->load->model('mo_post');
+			$this->mo_post->insert($title,$content);
 			redirect(base_url('post'));
 		}
 
 		public function edit($id)
 		{
-			$condition = array('posts.id'=>$id);
-			$query = $this->db->get_where('posts',$condition);
-			$result = $query->row();
-			$data['row'] = $result;
+			$this->load->model('mo_post');
+			$data['row'] = $this->mo_post->get($id);
 			$this->load->view('update',$data);
 		}
 
@@ -79,18 +73,15 @@
 			$id = $this->input->post('id');
 			$title = $this->input->post('title');
 			$content = $this->input->post('content');
-			$new_data = array('title'=>$title,'content'=>$content);
-			$condition = array('posts.id'=>$id);
-			$this->db->where($condition);
-			$this->db->update('posts',$new_data);
+			$this->load->model('mo_post');
+			$this->mo_post->update($id, $title, $content);
 			redirect(base_url('post'));
 		}
 
 		public function  delete($id)
 		{
-			$condition = array('posts.id'=>$id);
-			$this->db->where($condition);
-			$this->db->delete('posts');
+			$this->load->model('mo_post');
+			$this->mo_post->delete($id);
 			redirect(base_url('post'));
 		}
 
