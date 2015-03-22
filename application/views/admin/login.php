@@ -5,6 +5,9 @@
 </head>
 <body>
 	<div>
+		<?php echo $this->session->flashdata('msg'); ?>
+	</div>
+	<div>
 		<form action="<?php echo base_url('admin/login'); ?>" method="post">
 			Username :: <input type="text" name="username"/>
 			<br/>

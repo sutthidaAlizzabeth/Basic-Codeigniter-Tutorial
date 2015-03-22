@@ -2,9 +2,18 @@
 /**
 * 
 */
-class mo_post extends CI_Model
+class mo_user extends CI_Model
 {
 	public $table = 'users';
+
+	public function login($username, $password)
+	{
+		$condition = array('users.username'=>$username, 'users.password'=>md5($password));
+		$this->db->select('username');
+		$query = $this->db->get_where($this->table, $condition);
+		$result = $query->row();
+		return $result;
+	}
 
 	public function get($id = FALSE)
 	{
