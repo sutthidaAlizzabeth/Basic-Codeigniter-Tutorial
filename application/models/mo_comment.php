@@ -37,7 +37,7 @@ class mo_comment extends CI_Model
 
 	public function delete($id)
 	{
-		$condition = array('posts.id'=>$id);
+		$condition = array('comments.id'=>$id);
 		$this->db->where($condition);
 		$this->db->delete($this->table);
 	}

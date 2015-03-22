@@ -17,9 +17,11 @@ class comment extends CI_Controller
 		
 	}
 
-	public function delete()
+	public function delete($id)
 	{
-		# code...
+		$this->load->model('mo_comment');
+		$this->mo_comment->delete($id);
+		redirect(base_url('post'));
 	}
 }
  ?>
