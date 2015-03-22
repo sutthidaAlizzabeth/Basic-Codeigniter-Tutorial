@@ -27,6 +27,7 @@
 			$config['base_url'] = base_url('main/page');
 			$config['total_rows'] = $this->mo_post->get_num_row();
 			$config['per_page'] = $per_page;
+			$config['use_page_numbers'] = TRUE;
 			$this->pagination->initialize($config);
 
 			echo $this->pagination->create_links();
