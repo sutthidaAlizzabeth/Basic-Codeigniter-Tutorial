@@ -1,6 +1,7 @@
 <?php 
 /**
 * 
+duck duck 
 */
 class mo_post extends CI_Model
 {
