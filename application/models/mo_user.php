@@ -2,6 +2,7 @@
 /**
 * 
 */
+//Hello I'm Bee
 class mo_user extends CI_Model
 {
 	public $table = 'users';
