@@ -2,6 +2,7 @@
 /**
 * 
 */
+//by bee
 class mo_post extends CI_Model
 {
 	public $table = 'posts';
