@@ -1,6 +1,7 @@
 <?php 
 /**
 * 
+duck duck 
 */
 //by bee
 class mo_post extends CI_Model
